@@ -71,5 +71,5 @@ def test_redis(instance):
 
 
 if __name__ == "__main__":
-    http_server = gevent.pywsgi.WSGIServer(('127.0.0.1', int(config.port)), app)
+    http_server = gevent.pywsgi.WSGIServer(('127.0.0.1', int(config.port)), recognition)
     http_server.serve_forever()
