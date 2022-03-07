@@ -1,0 +1,47 @@
+name: recognition
+type: "python:3.8"
+
+
+web:
+    commands:
+        start: "gunicorn -b 0.0.0.0:$PORT project.wsgi:recognition"
+    locations:
+        "/":
+            root: ""
+            passthru: true
+            allow: false
+        "/static":
+            root: "static/"
+            allow: true
+
+
+hooks:
+    build: |
+        pipenv install --system --deploy
+        pip install -r requirements.txt
+        pip install -e .
+        pip install gunicorn
+
+
+mounts:
+    tmp:
+        source: local
+        source_path: tmp
+    logs:
+        source: local
+        source_path: logs
+
+
+dependencies:
+    python:
+        pipenv: "2018.10.13"
+
+
+relationships:
+    database: "db:mongodb"
+    rediscache: "cache:redis"
+
+
+disk: 1024
+
+

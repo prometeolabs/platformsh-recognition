@@ -1,0 +1,6 @@
+db:
+  type: 'mongodb:undefined'
+  disk: 512
+
+cache:
+  type: 'redis:5.0'
