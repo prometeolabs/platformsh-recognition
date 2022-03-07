@@ -38,7 +38,7 @@ dependencies:
 
 
 relationships:
-    database: "db:mongodb"
+    database: "db:mysql"
     rediscache: "cache:redis"
 
 

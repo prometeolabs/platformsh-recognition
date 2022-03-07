@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 flask = ">=1.1.1"
 redis = "*"
-mongodb = "*"
+pymysql = "*"
 gevent = "*"
 platformshconfig = "~=2.0"
 
